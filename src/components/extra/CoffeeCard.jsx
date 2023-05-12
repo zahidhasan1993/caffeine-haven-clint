@@ -1,10 +1,15 @@
 import React from "react";
 import { HiEye, HiPencil, HiTrash } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CoffeeCard = ({ data }) => {
   const {_id, photo, name, chef, category } = data;
   // console.log(data);
+
+  const handleUpdate = (id) => {
+    console.log(id);
+  }
 
   const handleDelete = (id) => {
     // console.log(id);
@@ -59,7 +64,7 @@ const CoffeeCard = ({ data }) => {
           <button className="btn bg-[#D2B48C] hover:bg-amber-900"><HiEye className="text-2xl"></HiEye></button>
           <br />
           <br />
-          <button className="btn btn-black"><HiPencil className="text-2xl"></HiPencil></button>
+          <Link to={`/updatecoffee/${_id}`} className="btn btn-black"><HiPencil className="text-2xl"></HiPencil></Link>
           <br /> <br />
           <button onClick={() => handleDelete(_id)} className="btn bg-red-800 hover:bg-red-600"><HiTrash className="text-2xl"></HiTrash></button>
         </div>
